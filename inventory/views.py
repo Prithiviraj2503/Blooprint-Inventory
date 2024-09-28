@@ -43,6 +43,8 @@ class ItemDetail(APIView):
         serializer = ItemSerializer(items, data=request.data)
         if serializer.is_valid():
             serializer.save()
+            cache_key = f'item_{pk}'
+            cache.delete(cache_key)
             return Response(serializer.data)
         logger.info(f"Error in update: {serializer.data}")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

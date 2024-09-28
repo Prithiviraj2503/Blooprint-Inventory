@@ -8,7 +8,7 @@ class ItemDetails(models.Model):
     description      =  models.CharField(max_length = 255)
     category         =  models.CharField(max_length = 10)
     barcode          =  models.CharField(max_length = 10)
-    supplier         =  models.CharField(max_length = 10)
+    supplier         =  models.CharField(max_length = 30)
     min_stock        =  models.IntegerField(default = 0)
     max_stock        =  models.IntegerField(default = 0)
     cur_stock        =  models.IntegerField(default = 0)
