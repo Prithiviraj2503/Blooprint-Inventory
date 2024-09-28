@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class ItemDetails(models.Model):
+    id               =  models.AutoField(primary_key=True)
     item_id          =  models.CharField(max_length = 10)
     item_name        =  models.CharField(max_length = 50)
     description      =  models.CharField(max_length = 255)
@@ -17,6 +18,9 @@ class ItemDetails(models.Model):
     date_added       =  models.DateField(max_length = 10)
     last_updated     =  models.DateTimeField(max_length = 10)
     is_active        =  models.BooleanField(max_length = 10)
+
+    class Meta:
+        db_table = 'item_details'
 
     def __str__(self):
         return self.item_id
